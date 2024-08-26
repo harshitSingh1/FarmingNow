@@ -36,10 +36,10 @@ const Footer = () => {
           <a href="#features">Features</a>
           <a href="#products">Products</a>
           <a href="#blogs">Blogs</a>
-          <a href="#">FAQs</a>
-          <a href="#">Contact</a>
-          <a href="#">T&C</a>
-          <a href="#">Policies</a>
+          <a href="#home">FAQs</a>
+          <a href="#home">Contact</a>
+          <a href="#home">T&C</a>
+          <a href="#home">Policies</a>
         </div>
 
         <div className="contacts">
