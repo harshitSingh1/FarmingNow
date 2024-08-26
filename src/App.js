@@ -8,6 +8,7 @@ import Categories from './components/Categories';
 import Learn from './components/Learn';
 import About from './components/About';
 import Blogs from './components/Blogs';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Learn />
       <About />
       <Blogs />
+      <Footer />
     </div>
   );
 }
