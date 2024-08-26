@@ -80,14 +80,6 @@ section{
     box-shadow: var(--box-shadow);
 }
 
-.header .logo {
-    display: flex;
-    align-items: center;
-    font-size: 2.5rem;
-    font-weight: bolder;
-    color: var(--black);
-}
-
 .header .logo img {
     width: 200px;  /* Adjust the width as needed */
     height: auto;  /* Maintain aspect ratio */
@@ -109,23 +101,6 @@ section{
     padding: 3px;
 }
 
-.header .icons div{
-    height: 4.5rem;
-    width: 4.5rem;
-    line-height: 4.5rem;
-    border-radius: .5rem;
-    background: #eee;
-    color:var(--black);
-    font-size: 2rem;
-    margin-left: .3rem;
-    cursor: pointer;
-    text-align: center;
-}
-
-.header .icons div:hover{
-    background: var(--green);
-    color:#fff;
-}
 
 #menu-btn{
     display: none;
@@ -505,97 +480,236 @@ section{
     padding:.5rem 0;
 }
 
-.footer{
-    background: #fff;
-}
-
-.footer .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    gap:1.5rem;
-}
-
-.footer .box-container .box h3{
-    font-size: 2.5rem;
-    color:var(--black);
-    padding:1rem 0;
-}
-
-.footer .box-container .box h3 i{
-    color:var(--green);
-}
-
-.footer .box-container .box .links{
-    display: block;
-    font-size: 1.5rem;
-    color:var(--light-color);
-    padding:1rem 0;
-}
-
-.footer .box-container .box .links i{
-    color:var(--green);
-    padding-right: .5rem;
-}
-
-.footer .box-container .box .links:hover i{
-    padding-right: 2rem;
-}
-
-
-.footer .box-container .box p{
-    line-height: 1.8;
-    font-size: 1.5rem;
-    color:var(--light-color);
-    padding:1rem 0;
-}
-
-.footer .box-container .box .share a{
-    height:4rem;
-    width:4rem;
-    line-height:4rem;
-    border-radius: .5rem;
-    font-size: 2rem;
-    color:var(--black);
-    margin-right: .2rem;
-    background: #eee;
+/* Newsletter Section */
+.newsletter {
+    background-position: center;
+    background-size: cover;
+    padding: 4rem 0;
     text-align: center;
+    position: relative;
+    z-index: 0;
 }
 
-.footer .box-container .box .share a:hover{
-    background: var(--green);
-    color: #fff;
-}
-
-.footer .box-container .box .email{
+.newsletter::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
     width: 100%;
-    margin:.7rem 0;
-    padding:1rem;
-    border-radius: .5rem;
-    background: #eee;
+    z-index: -1;
+    background: rgba(255, 255, 0, 0.45);
+}
+
+.newsletter span {
+    font-size: 3rem;
+    color: #fff;
+    font-weight: bold;
+    padding-bottom: 1rem;
+    text-shadow: 0 .3rem .5rem rgba(0, 0, 0, .3);
+}
+
+.newsletter h3 {
+    font-size: 4rem;
+    color: black;
+    padding: 2rem 0;
+    text-transform: uppercase;
+    text-shadow: 0 .2rem .4rem rgba(0, 0, 0, .1);
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.newsletter form input {
+    height: 5rem;
+    width: 35%;
+    padding: 0 1rem;
     font-size: 1.6rem;
-    color:var(--black);
-    text-transform: none;
+    border: none;
+    border-radius: 5px;
 }
 
-.footer .box-container .box .payment-img{
-    margin-top: 2rem;
-    height: 3rem;
-    display: block;
+.newsletter form ::placeholder {
+    font-size: 1.6rem;
+    color: #707070;
 }
 
-.footer .credit{
+.newsletter form button {
+    height: 5rem;
+    width: 10%;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: #fff;
+    background: #77b122;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter form button:hover {
+    background: #66a211;
+}
+
+
+/*footer */
+.footer{
+    padding: 3rem 12rem;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    z-index: 0;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10rem;
+    align-items: center;
+}
+
+.footer::before{
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: rgba(48, 48, 48,.85);
+}
+
+.footer .about{
+    flex: 1 1 20rem;
+}
+.footer h3 {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: #000000;
+    padding-bottom: 2rem;
+    background-color: #ffffff7e;
+    padding: 5px 10px;
+    border-radius: 10px;
+  }
+
+.footer img {
+    width: 250px;  /* Adjust the width as needed */
+    height: auto;  /* Maintain aspect ratio */
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.footer a{
+    color: #e9eaeb;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.footer a:hover{
+    text-decoration: none;
+}
+
+.footer p{
+    color:#e9eaeb;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    padding-top: 10px;
+}
+
+.footer .quick-links{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1.4rem;
+    transition: .6s all linear;
+}
+
+.footer .quick-links a:hover{
+    color: #77b122;
+    text-decoration: underline;
+    margin-left: .8rem;
+}
+
+
+.footer .contacts{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 300px;
+  }
+  
+  .footer .contacts h3 {
+    font-size: 1.8rem;
+    color: #000000;
+    margin-bottom: 1rem;
+  }
+  
+  .footer .contacts .icon {
+    font-size: 2rem; /* Adjust the icon size */
+    color: #77b122; /* Adjust the icon color if needed */
+    display: block; /* Ensure the icon is on a separate line */
+    margin-bottom: 0.5rem; /* Add space between the icon and the text */
+  }
+  
+
+.footer .s-media{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.footer .s-media a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;  /* Ensure equal width and height */
+    height: 4rem; /* Ensure equal width and height */
+    border-radius: 50%; /* Make the icon container circular */
+    background: var(--green); /* Background color for the icons */
+    color: #fff; /* Icon color */
+    font-size: 2rem; /* Adjust icon size */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.footer .s-media .s-icon:hover{
+    display: flex;
+    flex-wrap: wrap;
     text-align: center;
-    margin-top: 2rem;
-    padding:1rem;
-    padding-top: 2.5rem;
-    font-size: 2rem;
-    color:var(--black);
-    border-top: var(--border);
+    transform: scale(1.1);
+}
+.footer .s-media:hover a{
+    background: #77b122;
+}
+.footer .s-media .s-icon{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
-.footer .credit span{
-    color:var(--green);
+.footer .s-media p{
+    margin-left: 1rem;
+    text-transform: capitalize;
+    font-size: 1.6rem; /* Adjust text size */
+    line-height: 1;
 }
+  
+  .copyright {
+    text-align: center;
+    padding: 1rem 0;
+    background: #333;
+    color: #fff;
+  }
+  
+  .copyright .copy {
+    font-size: 1.2rem;
+  }
+  
 
 /* media queries  */
 @media (max-width: 1200px) {
@@ -642,8 +756,8 @@ section{
 
     .header .navbar{
         position: absolute;
-        top:110%; right:-110%;
-        width:30rem;
+        top:105%; right:-105%;
+        width:25rem;
         box-shadow: var(--box-shadow);
         border-radius: .5rem;
         background: #fff;
@@ -656,7 +770,7 @@ section{
 
     .header .navbar a{
         font-size: 2rem;
-        margin:2rem 2.5rem;
+        margin:1rem 2.5rem;
         display: block;
     }
 
