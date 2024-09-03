@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faUser, faBars } from '@fortawesome/free-solid-svg-icons'; // Add faBars for the menu icon
+import { faSearch, faUser, faBars } from '@fortawesome/free-solid-svg-icons';
 import '../styles/style.css';
 
 const Header = () => {
   const [searchActive, setSearchActive] = useState(false);
-  const [navbarActive, setNavbarActive] = useState(false); // State for navbar visibility
+  const [navbarActive, setNavbarActive] = useState(false);
 
   return (
     <header className="header">
@@ -14,13 +14,13 @@ const Header = () => {
       </a>
 
       <nav className={`navbar ${navbarActive ? 'active' : ''}`}>
-        <a href="#home">Home</a>
-        <a href="#features">Features</a>
-        <a href="#products">Products</a>
-        <a href="#categories">Categories</a>
-        <a href="#learn">Learn</a>
-        <a href="#about">About</a>
-        <a href="#blogs">Blogs</a>
+        <a href="/#home">Home</a>
+        <a href="/#features">Features</a>
+        <a href="/#products">Products</a>
+        <a href="/#categories">Categories</a>
+        <a href="/#learn">Learn</a>
+        <a href="/#about">About</a>
+        <a href="/#blogs">Blogs</a>
       </nav>
 
       <div className="icons">

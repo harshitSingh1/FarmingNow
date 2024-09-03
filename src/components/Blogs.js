@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/style.css';
+import { useNavigate } from 'react-router-dom';
 
 const Blogs = () => {
+  const [blogs, setBlogs] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Fetch the blog data from the server
+    fetch('http://localhost:5000/scrape')
+      .then(response => response.json())
+      .then(data => setBlogs(data.slice(0, 3))) // Take the first 3 blogs
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
+
+  const handleReadMore = () => {
+    navigate('/Blog_Page');
+  };
+
   return (
     <section className="blogs" id="blogs">
       <h1 className="heading">
@@ -9,48 +25,17 @@ const Blogs = () => {
       </h1>
 
       <div className="box-container">
-        <div className="box">
-          <img src="image/blog-1.jpg" alt="Blog 1" />
-          <div className="content">
-            <div className="icons">
-              <a href="/"> <i className="fas fa-user"></i> by admin </a>
-              <a href="/"> <i className="fas fa-calendar"></i> 21st May, 2023 </a>
-            </div>
-            <h3>blog title 1</h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam magnam rem vel molestiae laborum eius?
-            </p>
-            <a href="/" className="btn">read more</a>
+        {blogs.map((blog, index) => (
+          <div className="box" key={index}>
+            <div className="figure" dangerouslySetInnerHTML={{ __html: blog.figure }} />
+            <figcaption>{blog.figcaption}</figcaption>
+            <p>{blog.blog_descp}</p>
           </div>
-        </div>
-        <div className="box">
-          <img src="image/blog-2.jpg" alt="Blog 2" />
-          <div className="content">
-            <div className="icons">
-              <a href="/"> <i className="fas fa-user"></i> by admin </a>
-              <a href="/"> <i className="fas fa-calendar"></i> 22nd May, 2023 </a>
-            </div>
-            <h3>blog title 2</h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam magnam rem vel molestiae laborum eius?
-            </p>
-            <a href="/" className="btn">read more</a>
-          </div>
-        </div>
-        <div className="box">
-          <img src="image/blog-3.jpg" alt="Blog 3" />
-          <div className="content">
-            <div className="icons">
-              <a href="/"> <i className="fas fa-user"></i> by admin </a>
-              <a href="/"> <i className="fas fa-calendar"></i> 23rd May, 2023 </a>
-            </div>
-            <h3>blog title 3</h3>
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam magnam rem vel molestiae laborum eius?
-            </p>
-            <a href="/" className="btn">read more</a>
-          </div>
-        </div>
+        ))}
+      </div>
+
+      <div className="read-more-container">
+        <button className="btn" onClick={handleReadMore}>Read More</button>
       </div>
     </section>
   );
