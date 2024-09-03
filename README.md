@@ -1,4 +1,4 @@
-website link: https://farmingnow.netlify.app
+website link: https://farming-now.vercel.app/
 # FarmingNow
 
 **Project Name:** FarmingNow  
