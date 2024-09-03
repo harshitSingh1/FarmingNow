@@ -554,6 +554,7 @@ section{
 }
 
 
+
 /* Newsletter Section */
 .newsletter {
     background-position: center;
@@ -594,6 +595,7 @@ section{
     display: flex;
     justify-content: center;
     gap: 1rem;
+    align-items: center;
 }
 
 .newsletter form input {
@@ -610,9 +612,10 @@ section{
     color: #707070;
 }
 
-.newsletter form button {
+.newsletter form button.subscribe-btn {
     height: 5rem;
-    width: 10%;
+    width: auto;
+    padding: 0 2rem;
     font-size: 1.6rem;
     text-transform: uppercase;
     color: #fff;
@@ -621,11 +624,46 @@ section{
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    gap: 0.5rem;
+    position: relative; /* To position the tooltip */
+}
+
+.newsletter form button.subscribe-btn .subscribe-text {
+    margin-right: 0.5rem; /* Adjust spacing if needed */
+    padding-top: 5px;
+}
+
+.newsletter form button.subscribe-btn .subscribe-icon {
+    font-size: 2rem;
+}
+
+.newsletter form button.subscribe-btn .tooltip {
+    position: absolute;
+    top: -2.5rem; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.newsletter form button.subscribe-btn:hover .tooltip {
+    opacity: 0;
 }
 
 .newsletter form button:hover {
     background: #66a211;
 }
+
+
 
 
 /*footer */
@@ -847,6 +885,24 @@ section{
         margin:1rem 2.5rem;
         display: block;
     }
+    .newsletter form button.subscribe-btn {
+        padding: 0 1rem;
+    }
+    .newsletter form button.subscribe-btn:hover .tooltip {
+        opacity: 1;
+    }
+    .newsletter form button.subscribe-btn .subscribe-text {
+        display: none;
+    }
+
+    .newsletter form button.subscribe-btn .subscribe-icon {
+        display: inline-block;
+        font-size: 2rem;
+    }
+
+    .newsletter form input {
+        width: 60%;
+    }
 
 }
 
@@ -869,3 +925,4 @@ section{
     }
 
 }
+
