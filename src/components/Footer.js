@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMap, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faMap, faPhone, faEnvelope, faBell } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faTwitter, faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons';
 import '../styles/style.css';
 
@@ -17,7 +17,11 @@ const Footer = () => {
         <h3>Subscribe to our newsletter</h3>
         <form action="#">
           <input type="email" name="email" placeholder="Enter Your Email" />
-          <button type="submit">Subscribe</button>
+          <button type="submit" className="subscribe-btn">
+            <span className="subscribe-text">Subscribe</span>
+            <span className="tooltip">Subscribe</span>
+            <FontAwesomeIcon icon={faBell} className="subscribe-icon" />
+          </button>
         </form>
       </section>
 
