@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/style.css';
 
 const Features = () => {
+
+  const navigate = useNavigate();
+
+    const goToSchemes = () => {
+      navigate('/schemes');
+    };
   return (
     <section className="features" id="features">
       <h1 className="heading">
@@ -15,11 +22,11 @@ const Features = () => {
         <p>Discover the best crops for your area and season based on local climate and conditions.</p>
     </div>
 
-    <div className="box">
-        <img src="images/icon-2.jpg" alt="" />
+    <div className="box" onClick={goToSchemes}>
+        <img src="images/icon-2.jpg" alt="Government Schemes" />
         <h3>Government Schemes</h3>
         <p>Access tailored government schemes and subsidies to support your farming activities.</p>
-    </div>
+      </div>
     
     <div className="box">
         <img src="images/icon-3.jpg" alt="" />
