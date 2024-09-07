@@ -9,6 +9,9 @@ const Features = () => {
     const goToSchemes = () => {
       navigate('/schemes');
     };
+    const goToPestControl = () => {
+      navigate('/pest-control');
+    };
   return (
     <section className="features" id="features">
       <h1 className="heading">
@@ -28,7 +31,7 @@ const Features = () => {
         <p>Access tailored government schemes and subsidies to support your farming activities.</p>
       </div>
     
-    <div className="box">
+    <div className="box" onClick={goToPestControl}>
         <img src="images/icon-3.jpg" alt="" />
         <h3>Pest Control</h3>
         <p>Identify and manage pests effectively to protect your crops and maximize yield.</p>
