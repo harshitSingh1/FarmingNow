@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import BlogPage from './components/Blogs_Page';
 import SchemesPage from './components/Schemes_Page';
 import PestControl from './components/PestControl';
+import SoilHealthMonitoring from './components/SoilHealthMonitoring';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/Blog_Page" element={<BlogPage />} />
           <Route path="/schemes" element={<SchemesPage />} />
           <Route path="/pest-control" element={<PestControl />} />
+          <Route path="/soil" element={<SoilHealthMonitoring />} />
         </Routes>
         <Footer />
       </div>

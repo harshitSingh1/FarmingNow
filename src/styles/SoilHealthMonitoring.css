@@ -1,0 +1,133 @@
+.container {
+    font-family: 'Roboto', sans-serif;
+    background-color: #eafaf1;
+    color: #2e8b57;
+    padding: 70px 30px;
+    border-radius: 10px;
+    max-width: 900px;
+    margin: 30px auto;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container h2 {
+    color: #2e8b57;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #2e8b57;
+    padding-bottom: 5px;
+    font-size: 2rem;
+}
+
+.container .soil-data, .recommendations {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.container .soil-data:hover, .recommendations:hover {
+    transform: translateY(-5px);
+}
+
+.container .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.container .data-item {
+    background-color: #f0fff4;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container .data-item strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}
+.container .data-item span {
+    font-size: 1.2rem;
+}
+
+.container .recommendations h2 {
+    margin-top: 30px;
+    font-size: 2rem;
+    
+}
+
+.container .recommendation-item {
+    margin-bottom: 20px;
+}
+
+.container .recommendation-item h3 {
+    color: #2e8b57;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.container .recommendation-item p, .recommendation-item ul {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.container .recommendation-item ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.container .error {
+    color: #d9534f;
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.container .loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #2e8b57;
+}
+
+.container .manual-location-button {
+    display: block;
+    width: 60%;
+    padding: 12px;
+    margin: 20px auto;
+    background-color: #2e8b57;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.container .manual-location-button:hover {
+    background-color: #1f6d3e;
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .data-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .manual-location-button {
+        width: 80%;
+    }
+}
