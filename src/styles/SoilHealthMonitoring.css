@@ -62,6 +62,7 @@
 }
 .container .data-item span {
     font-size: 1.2rem;
+    color: black;
 }
 
 .container .recommendations h2 {
@@ -83,6 +84,7 @@
 .container .recommendation-item p, .recommendation-item ul {
     font-size: 1.2rem;
     line-height: 1.6;
+    color: black;
 }
 
 .container .recommendation-item ul {
@@ -121,6 +123,21 @@
     background-color: #1f6d3e;
     transform: scale(1.05);
 }
+
+.map-container {
+    position: relative;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    z-index: 1;
+}
+.map-container p{
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: black;
+}
+
 
 @media (max-width: 600px) {
     .data-grid {
