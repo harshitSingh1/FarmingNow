@@ -12,6 +12,15 @@ const Features = () => {
     const goToPestControl = () => {
       navigate('/pest-control');
     };
+    const goToWeatherPage = () => {
+      navigate('/Weather');
+    };
+    const goToSoilPage = () => {
+      navigate('/soil');
+    };
+    const goToIrrigationPage = () => {
+      navigate('/irrigation');
+    };
   return (
     <section className="features" id="features">
       <h1 className="heading">
@@ -37,19 +46,19 @@ const Features = () => {
         <p>Identify and manage pests effectively to protect your crops and maximize yield.</p>
     </div>
 
-    <div className="box">
+    <div className="box" onClick={goToWeatherPage}>
         <img src="images/icon-4.jpg" alt="" />
         <h3>Weather Prediction</h3>
         <p>Get accurate weather forecasts to plan your farming activities and safeguard your crops.</p>
     </div>
 
-    <div className="box">
+    <div className="box" onClick={goToIrrigationPage}>
         <img src="images/icon-5.jpg" alt="" />
         <h3>Irrigation Help</h3>
         <p>Optimize your irrigation practices with guidance tailored to your crops and weather conditions.</p>
     </div>
 
-    <div className="box">
+    <div className="box" onClick={goToSoilPage}>
         <img src="images/icon-6.jpg" alt="" />
         <h3>Soil Updates</h3>
         <p>Stay informed about soil conditions and get recommendations for improving soil health.</p>
