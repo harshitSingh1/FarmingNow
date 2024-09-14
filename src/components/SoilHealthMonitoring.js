@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/SoilHealthMonitoring.css';
-import { motion } from 'framer-motion'; // For animations
+import { motion } from 'framer-motion';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
 
 const SoilHealthMonitoring = () => {
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
+    const [locationName, setLocationName] = useState('');
     const [soilData, setSoilData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    // Fetch user's location on component mount
     useEffect(() => {
-        // Check if geolocation is available
         window.scrollTo(0, 0);
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
@@ -28,12 +32,14 @@ const SoilHealthMonitoring = () => {
         }
     }, []);
 
+    // Fetch soil data and reverse geocoding for location name
     useEffect(() => {
         const fetchSoilData = async () => {
             if (latitude && longitude) {
                 setLoading(true);
                 try {
-                    const response = await axios.get(
+                    // Fetch soil data from NASA API
+                    const soilResponse = await axios.get(
                         `https://power.larc.nasa.gov/api/application/indicators/point`,
                         {
                             params: {
@@ -49,9 +55,19 @@ const SoilHealthMonitoring = () => {
                             }
                         }
                     );
-                    setSoilData(response.data);
+                    setSoilData(soilResponse.data);
+
+                    // Fetch location name using Mapbox reverse geocoding API
+                    const locationResponse = await axios.get(
+                        `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=pk.eyJ1IjoicmlzaGl0MzBnIiwiYSI6ImNrdXhiZTA5ejJ4ajcyb3Fyb294YjAzNW0ifQ.8tmia-HeeyaCQpFlwRphwA`
+                    );
+                    if (locationResponse.data.features.length > 0) {
+                        setLocationName(locationResponse.data.features[0].place_name);
+                    } else {
+                        setLocationName('Unknown location');
+                    }
                 } catch (err) {
-                    setError('Failed to fetch soil data.');
+                    setError('Failed to fetch data.');
                 } finally {
                     setLoading(false);
                 }
@@ -73,7 +89,6 @@ const SoilHealthMonitoring = () => {
         }
     };
 
-    // Function to generate irrigation tips based on soil moisture
     const getIrrigationTips = () => {
         if (!soilData) return null;
         const avgSoilMoisture = soilData.DB_AVG;
@@ -90,14 +105,12 @@ const SoilHealthMonitoring = () => {
         return tip;
     };
 
-    // Function to suggest crops based on soil and climate data
     const getCropSuggestions = () => {
         if (!soilData) return null;
         const precipitation = soilData.PRECTOTCORR_SUM;
         const avgTemp = soilData.T2M_AVG;
         let crops = [];
 
-        // Example crop suggestions based on precipitation and temperature
         if (precipitation > 600 && avgTemp > 20) {
             crops = ['Rice', 'Sugarcane', 'Cotton'];
         } else if (precipitation > 400 && avgTemp > 18) {
@@ -111,27 +124,41 @@ const SoilHealthMonitoring = () => {
         return crops;
     };
 
+
+    const LocationMarker = ({ setLatitude, setLongitude }) => {
+        useMapEvents({
+            click(e) {
+                setLatitude(e.latlng.lat);
+                setLongitude(e.latlng.lng);
+            }
+        });
+
+        return null;
+    };
+
     return (
-        <motion.div 
+        <motion.div
             className="container"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-        ><h1 className="heading">
-        Soil <span>Updates</span>
-      </h1>
+            style={{ zIndex: 1 }}
+        >
+            <h1 className="heading">
+                Soil <span>Updates</span>
+            </h1>
             {error && <p className="error">{error}</p>}
             {!latitude && !longitude && !error && (
                 <button onClick={handleManualLocation} className="manual-location-button">
                     Enter Location Manually
                 </button>
             )}
-            {loading && <p className="loading">Loading soil data...</p>}
+            {loading && <p className="loading">Loading data...</p>}
             {soilData && (
                 <div className="soil-data">
                     <h2>Soil Health Data</h2>
                     <div className="data-grid">
-                        <div className="data-item">
+                    <div className="data-item">
                             <strong>Average Soil Moisture:</strong>
                             <span>{soilData.DB_AVG ? `${soilData.DB_AVG} mm` : 'No data available'}</span>
                         </div>
@@ -154,6 +181,7 @@ const SoilHealthMonitoring = () => {
                     </div>
                 </div>
             )}
+
             {soilData && (
                 <div className="recommendations">
                     <h2>Recommendations</h2>
@@ -169,6 +197,35 @@ const SoilHealthMonitoring = () => {
                             ))}
                         </ul>
                     </div>
+                </div>
+            )}
+
+            {latitude && longitude && (
+                <div className="map-container">
+                    <h2 className="map-title">Change Your Location</h2>
+                    <p className="location-info">Marked Location: {locationName},  Latitude: {latitude.toFixed(4)},  Longitude: {longitude.toFixed(4)}</p>
+
+                    <MapContainer
+                        center={[latitude, longitude]}
+                        zoom={13}
+                        style={{ height: '400px', width: '100%', boxShadow: '0 4px 8px rgba(0,0,0,0.2)', borderRadius: '8px' }}
+                    >
+                        <TileLayer
+                            url={`https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmlzaGl0MzBnIiwiYSI6ImNrdXhiZTA5ejJ4ajcyb3Fyb294YjAzNW0ifQ.8tmia-HeeyaCQpFlwRphwA`}
+                            attribution='&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a>'
+                        />
+                        <Marker position={[latitude, longitude]} icon={L.icon({
+                            iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
+                            iconSize: [25, 41],
+                            iconAnchor: [12, 41],
+                            popupAnchor: [1, -34],
+                            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+                            shadowSize: [41, 41]
+                        })}>
+                            <Popup>{locationName || 'Your location'}</Popup>
+                        </Marker>
+                        <LocationMarker setLatitude={setLatitude} setLongitude={setLongitude} />
+                    </MapContainer>
                 </div>
             )}
         </motion.div>
