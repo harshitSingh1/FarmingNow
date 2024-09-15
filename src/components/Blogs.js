@@ -8,7 +8,7 @@ const Blogs = () => {
 
   useEffect(() => {
     // Fetch the blog data from the server
-    fetch('http://localhost:5000/scrape')
+    fetch('https://farming-now-server.vercel.app/scrape')
       .then(response => response.json())
       .then(data => setBlogs(data.slice(0, 3))) // Take the first 3 blogs
       .catch(error => console.error('Error fetching data:', error));
