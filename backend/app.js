@@ -11,7 +11,12 @@ const app = express();
 // Middleware
 app.use(cors());
 
-// Routes
+// Root Route
+app.get('/', (req, res) => {
+  res.send('Welcome to the Backend API');
+});
+
+// Scrape Blogs Route
 app.get('/scrape', async (req, res) => {
   try {
     const response = await axios.get('https://community.data.gov.in/all-blogs/');
@@ -34,6 +39,7 @@ app.get('/scrape', async (req, res) => {
   }
 });
 
+// Scrape Government Schemes Route
 app.get('/scrape-schemes', async (req, res) => {
   try {
     const response = await axios.get('https://community.data.gov.in/all-blogs/?searchtext=scheme&community=&ministry=&department=&organisation=&sector=&searchvis=Search&as_fid=6523f3b2a52a3746e50b46a2ec411470187ba3b2');
