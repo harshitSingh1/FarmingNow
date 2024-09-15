@@ -2,15 +2,15 @@ const express = require('express');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const cors = require('cors');
-
 const app = express();
-const port = process.env.PORT || 5000; // Use environment port or default to 5000
-
 app.use(cors({
   origin: '*', // Allow requests from all origins (consider restricting this in production)
   methods: ['GET'],
   allowedHeaders: ['Content-Type'],
 }));
+app.get('/', (req, res) => {
+  res.send('Welcome to the Backend API');
+});
 
 // Scrape Blogs Route
 app.get('/scrape', async (req, res) => {
@@ -58,6 +58,4 @@ app.get('/scrape-schemes', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+module.exports = app;
