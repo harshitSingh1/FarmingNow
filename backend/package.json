@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "api/index.js",  // Adjust based on your entry point
+  "main": "api/index.js",
   "scripts": {
     "vercel-build": "echo 'No build step required for backend'"
   },
