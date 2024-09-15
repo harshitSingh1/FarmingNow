@@ -6,7 +6,7 @@ function Blog_Page() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetch('http://localhost:5000/scrape')
+    fetch('https://farming-now-server.vercel.app/scrape')
       .then(response => response.json())
       .then(data => {
         setBlogs(data);
