@@ -2,12 +2,15 @@ const express = require('express');
 const axios = require('axios');
 const cheerio = require('cheerio');
 const cors = require('cors');
+
 const app = express();
+
 app.use(cors({
   origin: '*', // Allow requests from all origins (consider restricting this in production)
   methods: ['GET'],
   allowedHeaders: ['Content-Type'],
 }));
+
 app.get('/', (req, res) => {
   res.send('Welcome to the Backend API');
 });
