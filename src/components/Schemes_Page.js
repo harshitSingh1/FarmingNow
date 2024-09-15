@@ -8,7 +8,7 @@ function Schemes_Page() {
     window.scrollTo(0, 0);
 
     // Fetch data from the deployed backend URL
-    fetch('https://farming-now-server-f00pj56rb-harshitsingh1s-projects.vercel.app/scrape-schemes')
+    fetch('https://farming-now-server.vercel.app/scrape-schemes')
       .then((response) => response.json())
       .then((data) => {
         setSchemes(data);
