@@ -4,12 +4,12 @@ const cheerio = require('cheerio');
 const cors = require('cors');
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 
 // Scrape Blogs Route
-app.get('/scrape', async (req, res) => {
+app.get('/api/scrape', async (req, res) => {
   try {
     const response = await axios.get('https://community.data.gov.in/all-blogs/');
     const html = response.data;
@@ -32,9 +32,9 @@ app.get('/scrape', async (req, res) => {
 });
 
 // Scrape Government Schemes Route
-app.get('/scrape-schemes', async (req, res) => {
+app.get('/api/scrape-schemes', async (req, res) => {
   try {
-    const response = await axios.get('https://community.data.gov.in/all-blogs/?searchtext=scheme&community=&ministry=&department=&organisation=&sector=&searchvis=Search&as_fid=6523f3b2a52a3746e50b46a2ec411470187ba3b2');
+    const response = await axios.get('https://community.data.gov.in/all-blogs/?searchtext=scheme');
     const html = response.data;
     const $ = cheerio.load(html);
 
@@ -55,5 +55,5 @@ app.get('/scrape-schemes', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server running on port ${port}`);
 });
