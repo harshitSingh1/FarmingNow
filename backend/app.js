@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors({
-  origin: '*', // Allow requests from all origins (consider restricting this in production)
+  origin: '*', // Allow all origins (for development)
   methods: ['GET'],
   allowedHeaders: ['Content-Type'],
 }));
