@@ -4,6 +4,7 @@
   "description": "",
   "main": "api/index.js",
   "scripts": {
+    "start": "node api/index.js",
     "vercel-build": "echo 'No build step required for backend'"
   },
   "keywords": [],
