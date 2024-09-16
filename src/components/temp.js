@@ -10,7 +10,6 @@ const SoilHealthMonitoring = () => {
     const [latitude, setLatitude] = useState(null);
     const [longitude, setLongitude] = useState(null);
     const [locationName, setLocationName] = useState('');
-    const [currentMonth, setCurrentMonth] = useState(null);
     const [soilData, setSoilData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -31,9 +30,6 @@ const SoilHealthMonitoring = () => {
         } else {
             setError('Geolocation is not supported by this browser.');
         }
-        // Get current month
-        const now = new Date();
-        setCurrentMonth(now.getMonth() + 1);
     }, []);
 
     // Fetch soil data and reverse geocoding for location name
@@ -139,13 +135,6 @@ const SoilHealthMonitoring = () => {
 
         return null;
     };
-    // Extract the average temperature (T2M_AVG) for the current month
-    const getCurrentMonthTemperature = (t2mAvg) => {
-        if (t2mAvg && currentMonth) {
-            return t2mAvg[currentMonth] || 'No data available';
-        }
-        return 'No data available';
-    };
 
     return (
         <motion.div
@@ -153,7 +142,6 @@ const SoilHealthMonitoring = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            style={{ zIndex: 1 }}
         >
             <h1 className="heading">
                 Soil <span>Updates</span>
@@ -189,11 +177,6 @@ const SoilHealthMonitoring = () => {
                             <strong>Precipitation (Annual Total):</strong>
                             <span>{soilData.PRECTOTCORR_SUM ? `${soilData.PRECTOTCORR_SUM} mm` : 'No data available'}</span>
                         </div>
-                        <div className="data-item">
-                            <strong>Average Temperature:</strong>
-                            <span>{getCurrentMonthTemperature(soilData.T2M_AVG)} °C</span>
-                        </div>
-
                     </div>
                 </div>
             )}
@@ -218,8 +201,10 @@ const SoilHealthMonitoring = () => {
 
             {latitude && longitude && (
                 <div className="map-container">
-                    <h2 className="map-title">Change Your Location</h2>
-                    <p className="location-info">Marked Location: {locationName},  Latitude: {latitude.toFixed(4)},  Longitude: {longitude.toFixed(4)}</p>
+                    <h2 className="map-title">Your Current Location</h2>
+                    <p className="location-info">Location: {locationName}</p>
+                    <p className="location-info">Latitude: {latitude.toFixed(4)}</p>
+                    <p className="location-info">Longitude: {longitude.toFixed(4)}</p>
 
                     <MapContainer
                         center={[latitude, longitude]}

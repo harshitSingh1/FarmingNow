@@ -1,16 +1,17 @@
+// app.js
+
 const express = require('express');
+const cors = require('cors');
 const axios = require('axios');
 const cheerio = require('cheerio');
-const cors = require('cors');
 
+// Initialize Express App
 const app = express();
 
-app.use(cors({
-  origin: '*', // Allow all origins (for development)
-  methods: ['GET'],
-  allowedHeaders: ['Content-Type'],
-}));
+// Middleware
+app.use(cors());
 
+// Root Route
 app.get('/', (req, res) => {
   res.send('Welcome to the Backend API');
 });
@@ -61,4 +62,5 @@ app.get('/scrape-schemes', async (req, res) => {
   }
 });
 
+// Export the app to be used in server.js
 module.exports = app;
