@@ -6,6 +6,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [manualLocation, setManualLocation] = useState("");
+  window.scrollTo(0, 0);
 
   // Memoized function to fetch weather data based on location
   const fetchWeatherData = useCallback(async (locationQuery) => {
