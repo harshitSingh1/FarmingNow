@@ -11,7 +11,7 @@ const Weather = () => {
   const fetchWeatherData = useCallback(async (locationQuery) => {
     try {
       const response = await axios.get(
-        `http://api.weatherapi.com/v1/forecast.json?key=bd8862a8ff784db589d103353241609&q=${locationQuery}&days=6&aqi=yes&alerts=yes`
+        `https://api.weatherapi.com/v1/forecast.json?key=bd8862a8ff784db589d103353241609&q=${locationQuery}&days=6&aqi=yes&alerts=yes`
       );
       setWeatherData(response.data);
     } catch (error) {
