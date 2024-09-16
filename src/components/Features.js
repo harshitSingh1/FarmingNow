@@ -13,7 +13,7 @@ const Features = () => {
       navigate('/pest-control');
     };
     const goToWeatherPage = () => {
-      navigate('/Weather');
+      navigate('/weather');
     };
     const goToSoilPage = () => {
       navigate('/soil');

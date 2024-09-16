@@ -17,10 +17,10 @@ const Header = () => {
         <a href="/#home">Home</a>
         <a href="/#features">Features</a>
         <a href="/#products">Products</a>
-        <a href="/#categories">Categories</a>
         <a href="/#learn">Learn</a>
         <a href="/#about">About</a>
         <a href="/#blogs">Blogs</a>
+        <a href="/#contact">Contact</a>
       </nav>
 
       <div className="icons">
@@ -30,14 +30,13 @@ const Header = () => {
         <div id="profile-btn" className="profile-icon">
           <FontAwesomeIcon icon={faUser} />
         </div>
-        <div id="menu-btn" className="fas fa-bars" onClick={() => setNavbarActive(!navbarActive)}>
+        <div id="menu-btn" className="menu-icon" onClick={() => setNavbarActive(!navbarActive)}>
           <FontAwesomeIcon icon={faBars} />
         </div>
       </div>
 
       <form className={`search-form ${searchActive ? 'active' : ''}`}>
         <input type="search" placeholder="Search here..." />
-        <label htmlFor="search-box" className="fas fa-search"></label>
       </form>
     </header>
   );

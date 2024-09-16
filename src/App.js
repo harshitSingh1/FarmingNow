@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Features from './components/Features';
 import Products from './components/Products';
-import Categories from './components/Categories';
+import Contact from './components/Contact';
 import Learn from './components/Learn';
 import About from './components/About';
 import Blogs from './components/Blogs';
@@ -14,6 +14,7 @@ import BlogPage from './components/Blogs_Page';
 import SchemesPage from './components/Schemes_Page';
 import PestControl from './components/PestControl';
 import SoilHealthMonitoring from './components/SoilHealthMonitoring';
+import Weather from './components/Weather';
 
 function App() {
   return (
@@ -26,16 +27,17 @@ function App() {
               <Home />
               <Features />
               <Products />
-              <Categories />
               <Learn />
               <About />
               <Blogs />
+              <Contact />
             </>
           } />
           <Route path="/Blog_Page" element={<BlogPage />} />
           <Route path="/schemes" element={<SchemesPage />} />
           <Route path="/pest-control" element={<PestControl />} />
           <Route path="/soil" element={<SoilHealthMonitoring />} />
+          <Route path="/weather" element={<Weather />} />
         </Routes>
         <Footer />
       </div>
