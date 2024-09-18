@@ -71,12 +71,12 @@
   animation: fadeIn 1s ease-in-out;
 }
 
-.fertilizer-container .recommendation h2 {
+.fertilizer-container .recommendation h1 {
   color: #40916c;
   margin-bottom: 10px;
 }
 .fertilizer-container .recommendation div {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 @keyframes fadeIn {
