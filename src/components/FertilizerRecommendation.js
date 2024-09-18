@@ -61,7 +61,7 @@ const FertilizerRecommendation = () => {
             return;
         }
         
-        const temperature = weatherData?.DB_004 || 'unknown';
+        const temperature = weatherData?.DB_AVG || 'unknown';
         const humidity = weatherData?.WB_MAX_AVG || 'unknown';
         const moisture = weatherData?.MCDB_WB_980 || 'unknown';
 
@@ -147,7 +147,7 @@ const FertilizerRecommendation = () => {
             )}
             {recommendation && (
                 <div className="recommendation">
-                    <h2>Recommended Fertilizers:</h2>
+                    <h1>Recommended Fertilizers:</h1>
                     <div dangerouslySetInnerHTML={{ __html: recommendation }} />
                 </div>
             )}
