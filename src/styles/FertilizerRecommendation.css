@@ -76,7 +76,11 @@
   margin-bottom: 10px;
 }
 .fertilizer-container .recommendation div {
+<<<<<<< HEAD
+  font-size: 1.5rem;
+=======
   font-size: 1.4rem;
+>>>>>>> 3b89a531c32dfeee3e7417d4f6e3123a4ed9d0de
 }
 
 @keyframes fadeIn {

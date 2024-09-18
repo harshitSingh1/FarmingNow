@@ -19,8 +19,8 @@ const Header = () => {
         <a href="/#products">Products</a>
         <a href="/#learn">Learn</a>
         <a href="/#about">About</a>
-        <a href="/#blogs">Blogs</a>
-        <a href="/#contact">Contact</a>
+        <a href="/Blog_Page">Blogs</a>
+        <a href="/contact">Contact</a>
       </nav>
 
       <div className="icons">

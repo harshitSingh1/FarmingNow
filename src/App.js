@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
 import Features from './components/Features';
-import Contact from './components/Contact';
+import Contact from './components/contact_us';
 import About from './components/About';
 import Blogs from './components/Blogs';
 import Footer from './components/Footer';
@@ -36,6 +36,7 @@ function App() {
           <Route path="/soil" element={<SoilHealthMonitoring />} />
           <Route path="/weather" element={<Weather />} />
           <Route path="/FertilizerRecommendation" element={<FertilizerRecommendation />} />
+          <Route path="/Contact" element={<Contact />} />
         </Routes>
         <Footer />
       </div>
