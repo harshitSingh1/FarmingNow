@@ -1,0 +1,136 @@
+.contact-us-container {
+    padding: 70px;
+    background-color: #ffffff; /* Light green background */
+    font-family: 'Arial', sans-serif;
+}
+
+.contact-us-container .contact-us-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5px 80px;
+}
+
+.contact-us-container .contact-details {
+    flex: 1;
+    margin-right: 40px;
+}
+
+.contact-us-container .contact-heading {
+    font-size: 24px;
+    color: #2e7d32;
+    margin-bottom: 10px;
+}
+
+.contact-us-container .contact-subheading {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.contact-us-container .contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-us-container .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-us-container .icon {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #2e7d32;
+}
+
+.contact-us-container strong {
+    font-size: 18px;
+    color: #2e7d32;
+    display: block;
+}
+
+.contact-us-container p {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+}
+
+.contact-us-container .contact-form {
+    flex: 1;
+}
+
+.contact-us-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-us-container .input-field {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e8f5e9;
+    font-size: 16px;
+}
+
+.contact-us-container .message-box {
+    padding: 10px;
+    height: 120px;
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background-color: #e8f5e9;
+    transition: border-color 0.3s ease;
+}
+
+.input-field:focus, .message-box:focus{
+    border:2px solid #1b5e20;
+}
+
+.contact-us-container .submit-btn {
+    background-color: #2e7d32;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-us-container .submit-btn:hover {
+    background-color: #1b5e20;
+}
+.contact-us-container .error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.contact-us-container .success {
+    color: green;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .contact-us-container .contact-us-content {
+        flex-direction: column;
+    }
+    .contact-us-container .contact-us-content {
+        padding: 5px 5px;
+    }
+    
+    .contact-us-container .contact-details, .contact-form {
+        margin: 0;
+        width: 100%;
+    }
+}
+
+
