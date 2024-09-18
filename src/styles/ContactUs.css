@@ -1,5 +1,7 @@
 .contact-us-container {
-    padding: 70px;
+    margin-top: 70px;
+    padding: 0px 70px;
+    padding-bottom: 50px;
     background-color: #ffffff; /* Light green background */
     font-family: 'Arial', sans-serif;
 }

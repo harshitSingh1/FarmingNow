@@ -1,0 +1,81 @@
+/*about section styling*/
+.about_us{
+    padding: 70px 20px;
+    margin-top: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative; 
+    background-color: white;
+}
+.about_us .heading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+.about_us .image{
+    flex: 1 1 42rem;
+    display: flex;
+    align-items: center;
+}
+
+.about_us .image img{
+    height: 50rem;
+    width: 100%;
+    animation: aImage 10s linear infinite;
+}
+
+@keyframes aImage {
+    0%,100%{
+        transform: scale(.9);
+        border-radius: 95% 4% 97% 5%/ 4% 94% 3% 95%;
+    }
+    50%{
+        transform: scale(.8);
+        border-radius: 4% 95% 6% 95%/ 95% 4% 92% 5%;
+    }
+    
+}
+
+.about_us .content{
+    flex: 1 1 42rem;
+    margin-left: 4rem;
+    padding: 0 2.5rem;
+}
+
+.about_us .content span{
+    color: #707070;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.about_us .content h3{
+    font-size: 3.3rem;
+    color: #303030;
+}
+
+.about_us .content h3 span{
+    color: #77b122;
+    font-size: 3.3rem;
+}
+
+.about_us .content p{
+    font-size: 1.6rem;
+    color: #707070;
+    line-height: 1.3;
+    padding: 2rem 0;
+}
+
+
+/* Apply the animation to the icon class */
+.about_us .content .icon {
+    font-size: 1.5rem;
+    color: #77b122;
+}
+
+
+
