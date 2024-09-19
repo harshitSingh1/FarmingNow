@@ -79,6 +79,54 @@
   font-size: 1.4rem;
 }
 
+@media (max-width: 768px) {
+  .fertilizer-container .heading {
+      font-size: 2em;
+  }
+
+  .fertilizer-container .form-row {
+      flex-direction: column;
+  }
+
+  .fertilizer-container .fertilizer-form,
+  .fertilizer-container .image-container {
+      width: 100%;
+  }
+
+  .fertilizer-container .fertilizer-form {
+      margin-bottom: 20px;
+  }
+
+  .fertilizer-container .image-container img {
+      max-width: 100%;
+      height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .fertilizer-container .heading {
+      font-size: 1.5em;
+  }
+
+  .fertilizer-container .fertilizer-form label {
+      font-size: 0.9em;
+  }
+
+  .fertilizer-container .fertilizer-form input,
+  .fertilizer-container .fertilizer-form select {
+      padding: 8px;
+      font-size: 0.9em;
+  }
+
+  .fertilizer-container .submit-btn {
+      font-size: 0.9em;
+      padding: 8px 16px;
+  }
+
+  .fertilizer-container .recommendation h1 {
+      font-size: 1.5em;
+  }
+}
 @keyframes fadeIn {
   from {
       opacity: 0;

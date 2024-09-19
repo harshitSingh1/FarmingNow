@@ -16,8 +16,8 @@ const Header = () => {
       <nav className={`navbar ${navbarActive ? 'active' : ''}`}>
         <a href="/#home">Home</a>
         <a href="/#features">Features</a>
-        <a href="/#products">Products</a>
-        <a href="/#learn">Learn</a>
+        <a href="/CropRecommendation">Crops</a>
+        <a href="/schemes">Schemes</a>
         <a href="/About">About</a>
         <a href="/Blog_Page">Blogs</a>
         <a href="/contact">Contact</a>

@@ -14,6 +14,7 @@ import PestControl from './components/PestControl';
 import SoilHealthMonitoring from './components/SoilHealthMonitoring';
 import Weather from './components/Weather';
 import FertilizerRecommendation from './components/FertilizerRecommendation';
+import CropRecommendation from './components/CropRecommendation';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/soil" element={<SoilHealthMonitoring />} />
           <Route path="/weather" element={<Weather />} />
           <Route path="/FertilizerRecommendation" element={<FertilizerRecommendation />} />
+          <Route path="/CropRecommendation" element={<CropRecommendation />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/About" element={<About />} />
         </Routes>

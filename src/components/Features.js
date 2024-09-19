@@ -21,6 +21,9 @@ const Features = () => {
     const goToFertilizerRecommendation = () => {
       navigate('/FertilizerRecommendation');
     };
+    const goToCropRecommendation = () => {
+      navigate('/CropRecommendation');
+    };
   return (
     <section className="features" id="features">
       <h1 className="heading">
@@ -28,7 +31,7 @@ const Features = () => {
       </h1>
 
       <div className="box-container">
-    <div className="box">
+    <div className="box" onClick={goToCropRecommendation}>
         <img src='images/icon-1.jpg' alt="image1" />
         <h3>Crop Recommendations</h3>
         <p>Discover the best crops for your area and season based on local climate and conditions.</p>
