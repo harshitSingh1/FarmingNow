@@ -15,6 +15,7 @@ import SoilHealthMonitoring from './components/SoilHealthMonitoring';
 import Weather from './components/Weather';
 import FertilizerRecommendation from './components/FertilizerRecommendation';
 import CropRecommendation from './components/CropRecommendation';
+import Chatbot from './components/Chatbot';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
           <Route path="/About" element={<About />} />
         </Routes>
         <Footer />
+        <Chatbot />
       </div>
     </Router>
   );
