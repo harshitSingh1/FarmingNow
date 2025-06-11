@@ -1,4 +1,8 @@
 website link: https://farming-now.vercel.app/
+
+![FarmingNow](https://github.com/user-attachments/assets/08c9819c-32d8-4652-9769-f6687f835462)
+
+
 # FarmingNow
 
 **Project Name:** FarmingNow  
